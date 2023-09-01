@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Latihan Form</title>
+</head>
+<body>
+    <h2>FORMULIR</h2>
+    <br>
+    <form>
+        <label>Nama Anda:</label>
+        <input type="text" name="nama" value="" placeholder="isi nama anda di sini" size="20" maxlength="30">
+        <br><br>
+        <label>Password Anda:</label>
+        <input type="password" name="sandi" value="" placeholder="isi password anda di sini">
+        <br><br>
+        <label>Email Anda:</label>
+        <input type="email" name="emailku" value="" placeholder="nama_anda@gmail.com">
+        <br><br>
+        <label>Masukan warna favorit:</label>
+        <input type="color" name="warna">
+        <br><br>
+        <label>Masukan tanggal lahir:</label>
+        <input type="date" name="tgllahir">
+        <br><br>
+        <label>Stok Barang:</label>
+        <input type="number" name="nilai" min="0" max="100">
+        <br><br>
+        <label>Upload gambar:</label>
+        <input type="file" name="foto">
+        <br><br>
+        <label>Pilih Menu:</label> <br>
+        <input type="checkbox" name="menu" value="menu1">Menu Pertama <br>
+        <input type="checkbox" name="menu" value="menu2">Menu kedua <br>
+        <input type="checkbox" name="menu" value="menu3">Menu Ketiga
+        <br><br>
+        <label>Jenis Kelamin:</label> <br>
+        <input type="radio" name="jk" value="L">Laki-Laki<br>
+        <input type="radio" name="jk" value="P">Perempuan
+        <br><br>
+        <label>Pilihan:</label>
+        <select name="pilih">
+            <option value="">Pilihanya Apa?</option>
+            <option value="1">Pilihan 1</option>
+            <option value="2">Pilihan 2</option>
+            <option value="3">Pilihan 3</option>
+            <option value="4">Pilihan 4</option>
+        </select>
+        <br><br>
+
+      <label>Kolom komentar</label>
+        <textarea name="komentar" rows="10" cols="50"></textarea>
+     <br><br>
+
+     <input type="submit" name="proses" value="Simpan">
+     <input type="reset" name="unproses" value="Batal">
+
+    </form>    
+</body>
+</html>
