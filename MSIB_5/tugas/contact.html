@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="contact.css" />
+    <link rel="stylesheet" href="sidebar.css" />
+    <title>Contact Form</title>
+  </head>
+  <body bgcolor="#FF8C00">
+    <div class="sidenav">
+      <a href="Home.html">Home</a>
+      <a href="About_us.html">About Us</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="contact-form">
+      <h2>Contact Us</h2>
+      <table
+        width="900px"
+        style="margin-left: 0px; margin-right: auto"
+        border="1"
+        bgcolor="#FF1493"
+      >
+        <form action="#" method="POST">
+          <tr>
+            <th><label for="name">Name:</label></th>
+            <th><input type="text" id="name" name="name" required /></th>
+          </tr>
+          <tr>
+            <th><label for="email">Email:</label></th>
+            <th><input type="email" id="email" name="email" required /></th>
+          </tr>
+          <tr>
+            <th><label for="message">Message:</label></th>
+            <th>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                required
+              ></textarea>
+            </th>
+          </tr>
+
+          <button type="submit">Submit</button>
+        </form>
+      </table>
+    </div>
+  </body>
+</html>

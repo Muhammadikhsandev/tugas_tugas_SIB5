@@ -1,0 +1,64 @@
+/* ini adalah file css pertama */
+
+p {
+  color: brown;
+  text-align: justify;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12pt;
+}
+body {
+  background-color: khaki;
+  background-image: url("../images/hallo.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  margin: 0cm 3 cm;
+}
+fieldset,
+legend {
+  border: red groove 5px;
+  border-radius: 10px;
+}
+legend {
+  padding: 10px;
+  background-color: antiquewhite;
+  color: red;
+  font-weight: bold;
+  font-size: 14pt;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 15px;
+}
+
+/* contoh 1 khusus tag div */
+div#menu {
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  padding: 10px;
+}
+
+/* contoh 2 dapat masuk ke semua tag asalkan dipanggil id didalam tag */
+/* #menu{
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10px;
+    }
+     */
+
+     a.item:link, a.item:visited, a.item:active{
+      text-decoration: none;
+      font-size: 14pt;
+      color: black;
+      border: 2px solid white;
+      padding: 5px;
+      background-color: white;
+     }
+
+     a:item:hover{
+      color: rgb(255, 242, 0);
+      font-size: 20px;
+      font-weight: bold;
+      font-family: 'courier new', Courier, monospace;
+      padding-right: 10px;
+      background-color: brown;
+     }
