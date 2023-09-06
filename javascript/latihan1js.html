@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // ini adalah dokumen javascript
+      // didalam js biasanya setelah deklarasi suatu syntax, harus diakhiri tanda ;
+      // var adlah deklarasi untuk awalan variable didalam JS
+      var nama = "M.Ikhsan";
+      document.write("Assalamualaikum " + nama);
+
+      //kode diatas adalah contoh pendeklarasian variable
+      document.write("<br>");
+
+      // deklarasi variable menggunakan let
+      let produk = "TV"; //tipe data string atau varchar
+      let harga = 50000; //tipe data integer, jika ingin meggunakan bilangan real maka gunakan float
+      //cetak
+      document.write("produk " + produk + " dengan harga Rp. " + harga);
+      document.write("<br>");
+      //deklarasi variable const
+      var jari2 = 15;
+      const PHI = 3.14;
+      let keliling = 2 * PHI * jari2;
+      let luas = PHI * jari2 * jari2;
+      //cetak data
+      document.write(
+        "Keliling lingkaran dengan jari-jari = " + jari2 + " = " + keliling);
+      document.write(" Sedangkan luasnya = " + luas);
+    </script>
+  </body>
+</html>
