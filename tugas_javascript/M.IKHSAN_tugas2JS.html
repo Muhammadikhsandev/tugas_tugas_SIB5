@@ -1,0 +1,73 @@
+<script>
+  // ada pelanggan membeli barang elektronik
+  // barang-barangnya  misal ada TV=> harga 3 juta, motor => harga 12 juta, kulkas => harga 4 juta
+  // tentukan pembelian barangnya dan berapa yang dibeli
+  // tambahkan diskon dari setiap barang
+  // lalu cetak hasil barang dan totalannya
+  let pegawai = "Ridwan";
+
+  let jabatan = "Manager";
+
+  let status = "Menikah";
+
+  let gaji = 0;
+
+  switch (jabatan) {
+    case "Manager":
+      gaji = 15000000;
+      break;
+    case "Asisten Manager":
+      gaji = 10000000;
+      break;
+    case "staf":
+      gaji = 5000000;
+      break;
+    default:
+      gaji = 0;
+  }
+
+  // deklarasi variable proses
+  //tunjangan jabatan
+  let persen1 = 0.15;
+  let tunjanganJabatan = gaji * persen1;
+
+  //bpjs
+  let persen2 = 0.1;
+  let bpjs = gaji * persen2;
+
+  //tunjangan keluarga
+  let persen3 = 0.2;
+  let menikah = 0;
+  switch (status) {
+    case "Menikah":
+      menikah = gaji * persen3;
+      break;
+    default:
+      menikah = 0;
+  }
+
+  total_gaji = gaji + tunjanganJabatan + bpjs + menikah;
+  // cetak proses diatas
+  //   if (jabatan == "Manager") gaji = 15000000; //TRUE 1
+  //   else if (jabatan == "Asisten Manager") gaji = 10000000; //TRUE 2
+  //   else if (jabatan == "Staff") gaji = 5000000;
+  //   else gaji = 0;
+  document.write(
+    "Pegawai :" +
+      pegawai +
+      "<br/>Jabatan :" +
+      jabatan +
+      "<br/>Status :" +
+      status +
+      "<br/>Gaji Pokok :" +
+      gaji +
+      "<br/>Tunjangan Jabatan :" +
+      tunjanganJabatan +
+      "<br/>BPJS :" +
+      bpjs +
+      "<br/>Tunjangan Keluarga :" +
+      menikah +
+      "<br/>Total Gaji :" +
+      total_gaji
+  );
+</script>
