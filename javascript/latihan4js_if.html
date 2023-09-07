@@ -1,0 +1,38 @@
+<script>
+  let pelanggan = "Budi Santoso";
+  let totalbelanja = 150000;
+  let keterangan = "";
+
+  //struktur kendali if
+  if (totalbelanja > 1000000) {
+    keterangan = "Selamat " + pelanggan + " Anda dapat Hadiah ";
+  } else {
+    keterangan = "Terima kasih " + pelanggan + " sudah berbelanja ";
+  }
+  //cetak data
+  document.write(
+    "Atas nama Pelanggan " +
+      pelanggan +
+      " Dengan Total Belanja " +
+      totalbelanja +
+      " Keterangan " +
+      keterangan
+  );
+</script>
+
+<script>
+  //deklarasi dan inisialisasi variabel
+  let siswa = "Budi Santoso";
+  let nilai = 50;
+  //struktur kendali ternary
+  let ket = nilai >= 60 ? "Lulus " : "Gagal";
+  //cetak data
+  document.write(
+    "<br> Siswa bernama " +
+      siswa +
+      " dengan nilai " +
+      nilai +
+      " dinyatakan " +
+      ket
+  );
+</script>
