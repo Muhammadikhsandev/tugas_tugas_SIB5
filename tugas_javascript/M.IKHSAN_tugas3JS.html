@@ -1,0 +1,109 @@
+<table border="9" style="padding: 10; text-align: center; width: 100%">
+  <tr bgcolor="redblue">
+    <th>Nama</th>
+    <th>Jabatan</th>
+    <th>Gapok</th>
+    <th>Tunjab</th>
+    <th>Tunkes</th>
+    <th>Gaji Kotor</th>
+    <th>Agama</th>
+    <th>Warna Baris</th>
+    <th>Zakat Profesi</th>
+    <th>Take Home Pay</th>
+  </tr>
+
+  <script>
+    // Fungsi untuk menghitung tunjangan
+    function hitungTunjangan(gapok) {
+      var tunjab = 0.2 * gapok; // 20% dari gapok
+      var tunkes = 0.1 * gapok; // 10% dari gapok
+      return [tunjab, tunkes];
+    }
+
+    // Fungsi untuk menghitung zakat profesi
+    function hitungZakatProfesi(gajiKotor) {
+      return 0.025 * gajiKotor; // 2.5% dari gaji kotor
+    }
+
+    // Data pegawai
+    var pegawai = [
+    { nama: "Jamal", gapok: 15000000 },
+    { nama: "Udin", gapok: 15000000 },
+    { nama: "Asep", gapok: 10000000 },
+    { nama: "Agus", gapok: 10000000 },
+    { nama: "Jamaludin", gapok: 10000000 },
+    { nama: "Surya", gapok: 7000000 },
+    { nama: "Yani", gapok: 7000000 },
+    { nama: "Zindan", gapok: 7000000 },
+    { nama: "Ayu", gapok: 4000000 },
+    { nama: "Putra", gapok: 4000000 },
+  ];
+
+  // Cetak data pegawai
+  for (var i = 0; i < pegawai.length; i++) {
+    var data = pegawai[i];
+    var nama = data.nama;
+    var gapok = data.gapok;
+    var jabatan = "";
+
+    // Tentukan jabatan dengan if-else bersarang
+    if (i >= 0 && i <= 1) {
+      jabatan = "Manager";
+    } else if (i >= 2 && i <= 4) {
+      jabatan = "Asisten Manager";
+    } else if (i >= 5 && i <= 7) {
+      jabatan = "Supervisor";
+    } else if (i >= 8 && i <= 9) {
+      jabatan = "Staff";
+    }
+
+    // Tentukan gapok dengan switch case
+    switch (jabatan) {
+      case "Manager":
+        gapok = 15000000;
+        break;
+      case "Asisten Manager":
+        gapok = 10000000;
+        break;
+      case "Supervisor":
+        gapok = 7000000;
+        break;
+      case "Staff":
+        gapok = 4000000;
+        break;
+      default:
+        gapok = 0;
+    }
+
+    var [tunjab, tunkes] = hitungTunjangan(gapok);
+    var gajiKotor = gapok + tunjab + tunkes;
+    var agama = i % 2 === 0 ? "Non Muslim" : "Muslim";
+    var warnaBaris = i % 2 === 0 ? "blue" : "yellow";
+    var zakatProfesi =
+      agama === "Muslim" && gajiKotor >= 7000000
+        ? hitungZakatProfesi(gajiKotor)
+        : 0;
+    var takeHomePay = gajiKotor - zakatProfesi;
+
+      document.write("<tr>");
+      document.write(`<tr bgcolor="greenyellow">" <td>${nama}</td>`);
+      document.write("<td>" + jabatan + "</td>");
+      document.write("<td>" + gapok + "</td>");
+      document.write("<td>" + tunjab + "</td>");
+      document.write("<td>" + tunkes + "</td>");
+      document.write("<td>" + gajiKotor + "</td>");
+      document.write("<td>" + agama + "</td>");
+      document.write(
+        "<td style='background-color:" +
+          warnaBaris +
+          "'>" +
+          warnaBaris +
+          "</td>"
+      );
+      document.write("<td>" + zakatProfesi + "</td>");
+      document.write("<td>" + takeHomePay + "</td>");
+      document.write("</tr>");
+      
+    }
+  </script>
+</table>
