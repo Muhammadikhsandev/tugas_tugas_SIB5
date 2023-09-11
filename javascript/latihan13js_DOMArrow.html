@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fungsi dan event handler</title>
+  </head>
+  <body>
+    <form id="frm">
+      nama :
+      <input
+        type="text"
+        name="nama"
+        placeholder="Silahkan masukkan nama anda"
+      />
+      kelas :
+      <input
+        type="text"
+        name="kelas"
+        placeholder="Silahkan masukkan kelas anda"
+      />
+      <input type="button" name="proses" value="salam" onclick="salam()" />
+      <!-- contoh event handler -->
+      <h2 id="hasil"></h2>
+    </form>
+
+    <script>
+      function salam() {
+        let siswa = document.getElementById("frm").nama.value;
+        let kelas = document.getElementById("frm").kelas.value;
+        let input = "Selamat Pagi " + siswa + "<br> kelas " + kelas;
+        let no_input = "Maaf nama dan kelas anda belum terisi";
+        let hasil = siswa && kelas != "" ? input : no_input;
+
+        document.getElementById("hasil").innerHTML = hasil;
+      }
+    </script>
+  </body>
+</html>
