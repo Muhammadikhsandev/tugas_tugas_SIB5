@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Belajar DOM</title>
+  </head>
+  <body>
+    <p id="isi"></p>
+    <p id="warna">Mengubah element html menggunakkan styles DOM</p>
+    <h2>ini adalah contoh DOM tag</h2>
+    <script>
+      // menentukan  elemen di html menggunakan innerHTML dengan mencari id
+      document.getElementById("isi").innerHTML = "Hello DOM JS";
+
+      //membuat elemen didalam javascript untuk ditampilkan ke dalam html
+      let div = document.createElement("div");
+      div.id = "content";
+      div.innerHTML = "<p> Contoh Menambahkan Elemen</p>";
+      document.body.appendChild(div);
+
+      // mengubah element html menggunakan dom
+      document.getElementById("warna").style.color = "blue";
+
+      let z = document.getElementsByTagName("h2");
+    </script>
+    <script>
+      //buat fuction void
+      function salam(nama) {
+        document.write(`Apa kabar ${nama} ? <br/>`);
+      }
+      let siswa = "Fawwaz";
+      salam(siswa);
+      //   salam("Inaya");
+    </script>
+    <script>
+      //fungsi yang return => function yang mengambil nilai
+      function tambah(a, b) {
+        let c = a + b;
+        return c;
+      }
+      let x = 10;
+      let y = 20;
+      document.write(`Hasil 50 + 30 = ${tambah(50, 30)}<br/>`);
+      document.write(`Hasil ${x} + ${y} = ${tambah(x, y)}<br/>`);
+    </script>
+  </body>
+</html>
