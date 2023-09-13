@@ -1,0 +1,67 @@
+<script>
+  class Gempa {
+    constructor(lokasi, skala) {
+      this.lokasi = lokasi;
+      this.skala = skala;
+    }
+
+    dampak() {
+      if (this.skala >= 0 && this.skala <= 2) {
+        return "Tidak terasa";
+      } else if (this.skala > 2 && this.skala <= 4) {
+        return "Bangunan retak-retak";
+      } else if (this.skala > 4 && this.skala <= 6) {
+        return "Bangunan roboh";
+      } else {
+        return "Bangunan roboh dan berpotensi tsunami";
+      }
+    }
+
+    mencetak() {
+      document.write("Informasi Gempa Hari Ini:");
+      document.write("<br>Gempa 1 : ");
+      document.write("<br>Lokasi Gempa : ", n1.lokasi);
+      document.write("<br>Skala : ", n1.skala);
+      document.write("<br>Dampak : ", n1.dampak());
+      document.write("<br>---------------------<br>");
+
+      document.write("<br>Gempa 2 : ");
+      document.write("<br>Lokasi Gempa : ", n2.lokasi);
+      document.write("<br>Skala : ", n2.skala);
+      document.write("<br>Dampak : ", n2.dampak());
+      document.write("<br>---------------------<br>");
+
+      document.write("<br>Gempa 3 : ");
+      document.write("<br>Lokasi Gempa : ", n3.lokasi);
+      document.write("<br>Skala : ", n3.skala);
+      document.write("<br>Dampak : ", n3.dampak());
+      document.write("<br>---------------------<br>");
+
+      document.write("<br>Gempa 4 : ");
+      document.write("<br>Lokasi Gempa : ", n4.lokasi);
+      document.write("<br>Skala : ", n4.skala);
+      document.write("<br>Dampak : ", n4.dampak());
+      document.write("<br>---------------------<br>");
+
+      document.write("<br>Gempa 5 : ");
+      document.write("<br>Lokasi Gempa : ", n5.lokasi);
+      document.write("<br>Skala : ", n5.skala);
+      document.write("<br>Dampak : ", n5.dampak());
+      document.write("<br>---------------------<br>");
+    }
+  }
+
+  // Membuat 5 objek Gempa dengan berbagai skala
+  let n1 = new Gempa("California", 3.5);
+  let n2 = new Gempa("Tokyo", 5.0);
+  let n3 = new Gempa("Chile", 6.5);
+  let n4 = new Gempa("Alaska", 2.0);
+  let n5 = new Gempa("Indonesia", 7.2);
+
+  // Mencetak dampak dari setiap gempa
+  n1.mencetak();
+  n2.mencetak();
+  n3.mencetak();
+  n4.mencetak();
+  n5.mencetak();
+</script>
