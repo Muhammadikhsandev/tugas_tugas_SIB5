@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profil saya</title>
+    <link rel="stylesheet" href="../css/M.IKHSAN_tugasjquery1.css" />
+    <script src="../js_external/jquery-3.7.1.min.js"></script>
+    <script>
+      $("document").ready(function () {
+        $("#div1").click(function () {
+          $("#profile").show();
+          $("#motto, #keahlian").hide();
+        });
+
+        $("#div2").click(function () {
+          $("#motto").show();
+          $("#profile, #keahlian").hide();
+        });
+
+        $("#div3").click(function () {
+          $("#keahlian").show();
+          $("#profile, #motto").hide();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h2>Judul :</h2>
+    <ul>
+      <div id="div1">Profile</div>
+      <div id="div2">Moto hidup</div>
+      <div id="div3">Keahlian</div>
+    </ul>
+
+    <div id="profile">
+      <h2>Profil Pribadi</h2>
+      <p>Nama : M.IKHSAN</p>
+      <p>Kampus : POLITEKNIK NEGERI LHOKSEUMAWE</p>
+      <p>Asal : Subulussalam, Aceh</p>
+    </div>
+
+    <div id="motto">
+      <h2>Moto hidup</h2>
+      <p>
+        Moto hidup saya adalah Hiduplah seakan-akan kau akan mati besok.
+        Belajarlah seakan-akan kau akan hidup selamanya
+      </p>
+      <p>alasan saya pilih moto tersebut ialah:</p>
+      <p>
+        1. Hidup adalah takdir dari Sang Pencipta. Kita tidak pernah meminta
+        dilahirkan melalui rahim siapa? Kita menyadari bahwa telah terlahir dari
+        seorang ibu. Ibu dan ayah merawat kita sedari bayi sampai dengan saat
+        ini. Terlepas apakah ibu dan ayah kita masih hidup atau sudah meninggal
+        dunia? Kesemua itu adalah hidup kita, hidup yang harus dijalani dengan
+        pahit dan manisnya dinamika kehidupan.
+      </p>
+      <p>
+        2. Belajar adalah kebutuhan hidup. Hidup adalah proses pembelajaran.
+        Sebatas nyawa masih dikandung badan maka anggaplah saat kita sedang
+        belajar akan hidup selamanya. Sehingga belajar akan terus menjadi
+        kebutuhan dan keterpakainya selama-lamanya. Prinsip belajar adalah
+        belajarlah seakan-akan kau akan hidup selamanya. Sebagai makhluk yang
+        beragama tentunya harus melakukan yang terbaik dalam hidup. Allah SWT
+        hanya memberikan satu nyawa. Apakah kita akan menyia-yiakan hidup kita?
+        Tentunya tidak. Hiduplah dengan melakukan yang terbaik untuk dunia dan
+        akhirat.
+      </p>
+    </div>
+
+    <div id="keahlian">
+      <h2>Keahlian dan Pengalaman</h2>
+      <p>saya memiliki Keahlian dalam bidang merangkai struktur jaringan</p>
+      <p>
+        saya memiliki sedikit pengalaman dibidang struktur jaringan dan dibidang
+        pemrograman
+      </p>
+    </div>
+  </body>
+</html>
