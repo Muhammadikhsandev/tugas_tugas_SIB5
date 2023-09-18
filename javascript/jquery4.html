@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js_external/jquery-3.7.1.min.js"></script>
+    <script>
+      $("document").ready(function () {
+        $("#div1").mouseover(function () {
+          $(this).css({
+            background: "url('images/ayam.jpeg')",
+          });
+        });
+        $("div").mouseout(function () {
+          $(this).css({
+            background: "blue",
+          });
+        });
+        $("#div2").mouseover(function () {
+          $(this).css({
+            background: "url('images/bebek.jpeg')",
+          });
+        });
+        $("#div3").mouseover(function () {
+          $(this).css({
+            background: "url('images/burung.jpeg')",
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h2>Letakan kursor ke masing-masing kotak untuk melihat gambar</h2>
+
+    <div id="div1">Hewan Ayam</div>
+    <div id="div2">Hewan Bebek</div>
+    <div id="div3">Hewan Burung</div>
+  </body>
+</html>
