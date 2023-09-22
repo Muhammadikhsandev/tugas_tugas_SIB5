@@ -18,7 +18,7 @@
                 </td>
             </tr>
             <tr>
-                <td><label for=""> Pekerjaan</label></td>
+                <td><label for=""> Pekerjaan : </label></td>
                 <td>
                     <select name="pekerjaan" id="">
                         <option value="">---Pilihan Pekerjaan---</option>
@@ -30,7 +30,7 @@
                         <option value="TNI">TNI</option>
                         <option value="POLRI">POLRI</option>
                         <option value="Dosen">Dosen</option>
-                        <option value="Rsitek">Arsitek</option>
+                        <option value="Arsitek">Arsitek</option>
                         <option value="Pemadam Kebakaran">Pemadam Kebakaran</option>
                     </select><br />
                 </td>
