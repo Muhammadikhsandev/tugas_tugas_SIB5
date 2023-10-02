@@ -38,7 +38,6 @@ echo "<table border='1'>
     <td>3</td>
     <td>{$segitiga->namaBidang()}</td>
     <td>Alas: {$segitiga->Alas()}, Tinggi: {$segitiga->Tinggi()}</td>
-
     <td>{$segitiga->luasBidang()}</td>
     <td>{$segitiga->kelilingBidang()}</td>
 </tr>
