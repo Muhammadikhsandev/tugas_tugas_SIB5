@@ -1,0 +1,39 @@
+/* query mysql *\
+
+// masuk ke ruang DB melalui CMD
+cd \xampp\mysql\bin
+mysql -u root -p
+
+// menampilkan database yang sudah dibuat
+SHOW DATABASES;
+
+// membuat database baru
+CREATE DATABASE dbpegawai;
+
+// masuk keruang database
+use dbpegawai;
+
+// menampilkan tabel yang sudah ada didalam dbpegawai
+SHOW TABLES FROM dbpegawai;
+
+// membuat tabel didalam dbpegawai
+CREATE TABLE pegawai (
+    id INT PRIMARY KEY,
+    nip CHAR(5) NOT NULL UNIQUE,
+    nama VARCHAR(30) not null,
+    gender ENUM ('L', 'P') NOT NULL,
+    umur INT NOT NULL,
+    berat_badan FLOAT
+);
+
+// menginput data kedalam tabel pegawai
+INSERT INTO pegawai VALUES ('1', '001', 'M.IKHSAN', 'L', '21', '71');
+
+// menampilkan data pegawai
+SELECT * FROM pegawai;
+
+// menampilkan database yang sudah dibuat
+show DATABASES;
+
+// melihat deskripsi pada tabel pegawai
+DESC pegawai;

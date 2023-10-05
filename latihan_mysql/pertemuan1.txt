@@ -1,0 +1,44 @@
+*kumpulan query MySQL*
+// melihat database
+SHOW DATABASE;
+
+//membuat database baru
+CREATE DATABASE pegawaisib5;
+
+// menggunakan database
+USE pegawaisib5;
+// proses DDL create 
+//membuat table
+create table jenis( 
+    id INT PRIMARY KEY AUTO_INCREMENT, 
+    nama varchar (30) NOT null UNIQUE
+);
+/* id adalah nama kolom atau header kolom
+int adalah type database
+PRYMARY KEY adalah key atau kunci dari sebuah table
+AUTO_INCREMENT adalah key untuk automatisasi penomoran
+NOT null menandakan kolom tersebut tidak boleh kosong jika data mulai diisi
+UNIQUE adalah key untuk kolom agar data tidak boleh sama */
+// untuk melihat datail table
+
+DESC jenis;
+//membuat table relasi (produk ke jenis)
+CREATE TABLE produk (
+	id int PRIMARY KEY AUTO_INCREMENT,
+    nama varchar(30) NOT null UNIQUE,
+    harga double NOT null,
+    stok int NOT null,
+    idjenis int NOT null REFERENCES jenis(id),
+    foto varchar(30));
+
+DOL ALTER
+
+// menambahkan column baru 
+ALTER TABLE jenis ADD COLUMN IF NOT EXISTS
+keterangan varchar(50) AFTER nama;
+
+//mengubah nama kolom
+ALTER TABLE jenis CHANGE keterangan ket varchar(50);
+
+// mengubah tipe data
+ALTER TABLE jenis MODIFY ket TEXT AFTER nama;
