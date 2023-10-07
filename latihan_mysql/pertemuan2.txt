@@ -1,0 +1,18 @@
+// INSERT VALUES
+INSERT INTO jenis VALUES
+('', 'Elektronik'), ('','Furniture'), ('','Makanan'), ('','Minuman');
+
+// menambah kolom
+INSERT INTO produk (nama, harga, stok, idjenis, foto) VALUES ('TV',200000,3,1,'tv.jpg'), ('Meja',100000,3,2,'meja.jpg');
+
+//udate data
+UPDATE produk SET nama = 'TV LCD', harga = 400000 WHERE id = 1;
+
+//DELETE data
+DELETE from produk WHERE id = 2;
+
+//memilih data untuk ditampilkan
+SELECT nama, harga, stok FROM produk;
+
+//klausa
+SELECT nama, harga, stok FROM produk WHERE stok < 40;
