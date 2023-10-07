@@ -1,0 +1,35 @@
+// tabel pembelian
+CREATE TABLE pembelian (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    tanggal DATE NOT NULL,
+    nomor VARCHAR(255) NOT NULL,
+    produk_id INT REFERENCES produk(id),
+    jumlah INT NOT NULL,
+    harga double NOT NULL,
+    vendor_id INT REFERENCES vendor(id)
+);
+
+// tabel vendor
+CREATE TABLE vendor (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nomor VARCHAR(255) REFERENCES pembelian(nomor),
+    nama VARCHAR(255) NOT NULL,
+    kota VARCHAR(255) NOT NULL,
+    kontak VARCHAR(255) NOT NULL
+);
+
+// menambahkan data pembelian
+INSERT INTO pembelian (id, tanggal, nomor, produk_id, jumlah, harga, vendor_id) VALUES 
+(1,2023-10-06,1,1,3,400000,1), 
+(2,2023-10-07,2,3,10,2000000,2), 
+(3,2023-10-08,3,4,10,400000,3), 
+(4,2023-10-09,4,5,10,200000,4), 
+(5,2023-10-09,5,6,10,200000,5);
+
+//menambah data vendor
+INSERT INTO vendor (id, nomor, nama, kota, kontak) VALUES 
+(1,1,'Ikhsan','Lhokseumawe',08214422),
+(2,2,'Nisa','Langsa',08224123),
+(3,3,'Riski','Subulussalam',08524527),
+(4,4,'Ilham','Binjai',08524926),
+(5,5,'Putri','Sidikalang',08234326);
