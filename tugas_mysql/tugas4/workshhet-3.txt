@@ -1,0 +1,91 @@
+/*   worksheet-3   *\
+
+// soal 3.2
+	// Berapa jumlah pelanggan yang tahun lahirnya 1998
+    SELECT COUNT(*) FROM pelanggan WHERE tgl_lahir = 1998;
+
+	// Berapa jumlah pelanggan perempuan yang tempat lahirnya di Jakarta
+    MariaDB [dbpos]> SELECT COUNT(*) FROM pelanggan WHERE jk = 'P' AND tmp_lahir = 'Jakarta';
+
+	// Berapa jumlah total stok semua produk yang harga jualnya dibawah 10rb
+    SELECT SUM(stok) FROM produk WHERE harga_jual < 10000;
+
+	// Ada berapa produk yang mempunyai kode awal K
+    SELECT COUNT(*) FROM produk WHERE kode LIKE 'K%';
+
+	// Berapa harga jual rata-rata produk yang diatas 1jt
+    SELECT AVG(harga_jual) FROM produk WHERE harga_jual > 1000000;
+
+	// Tampilkan jumlah stok yang paling besar
+    SELECT MAX(stok) FROM produk;
+
+	// Ada berapa produk yang stoknya kurang dari minimal stok
+    SELECT COUNT(*) FROM produk WHERE stok < min_stok;
+
+	// Berapa total asset dari keseluruhan produk
+    SELECT SUM(harga_beli * stok) FROM produk;
+
+
+// SOAL 3.3
+	// Tampilkan data produk : id, nama, stok dan informasi jika stok telah sampai batas minimal atau kurang dari minimum stok dengan informasi ‘segera belanja’ jika tidak ‘stok aman’.
+    SELECT id, nama, stok,
+     CASE
+     WHEN stok < min_stok THEN 'segera belanja'
+     else 'stok aman'
+     END AS status_stok
+     FROM produk;
+
+	// Tampilkan data pelanggan: id, nama, umur dan kategori umur : jika umur < 17 → ‘muda’ , 17-55 → ‘Dewasa’, selainnya ‘Tua’
+     SELECT id, nama, umur,
+     CASE
+     WHEN umur < 17 THEN 'muda'
+     WHEN umur BETWEEN 17 AND 55 THEN 'Dewasa'
+     ELSE 'Tua'
+     END AS kategori_umur
+     FROM pelanggan;
+
+	// Tampilkan data produk: id, kode, nama, dan bonus untuk kode ‘TV01’ →’DVD Player’ , ‘K001’ → ‘Rice Cooker’ selain dari diatas ‘Tidak Ada’
+    SELECT id, kode, nama,
+     CASE
+     WHEN kode = 'TV01' THEN 'DVD Player'
+     WHEN kode = 'k001' THEN 'Rice Cooker'
+     ELSE 'Tidak Ada'
+     END AS bonus
+     FROM produk;
+
+
+// SOAL 3.4
+	// Tampilkan data statistik jumlah tempat lahir pelanggan
+     SELECT tmp_lahir, COUNT(*) AS jumlah_pelanggan
+     FROM pelanggan
+     GROUP BY tmp_lahir;
+
+	// Tampilkan jumlah statistik produk berdasarkan jenis produk
+    SELECT jenis_produk_id, COUNT(*) AS jumlah_produk
+     FROM produk
+     GROUP BY jenis_produk_id;
+
+	// Tampilkan data pelanggan yang usianya dibawah rata usia pelanggan
+    SELECT id, nama, umur
+     FROM pelanggan
+     WHERE umur < (SELECT AVG(umur) FROM pelanggan);
+
+	// Tampilkan data produk yang harganya diatas rata-rata harga produk
+    SELECT id, nama, harga_jual
+     FROM produk
+     WHERE harga_jual > (SELECT AVG(harga_jual) FROM produk);
+
+	// Tampilkan data pelanggan yang memiliki kartu dimana iuran tahunan kartu diatas 90rb
+     SELECT id, nama, iuran_kartu
+     FROM pelanggan
+     WHERE iuran_kartu > 90000;
+
+	// Tampilkan statistik data produk dimana harga produknya dibawah rata-rata harga produk secara keseluruhan
+    SELECT AVG(harga_jual) AS rata_rata_harga,
+     (SELECT COUNT(*) FROM produk WHERE harga_jual < (SELECT AVG(harga_jual) FROM produk)) AS produk_di_bawah_rata_rata
+     FROM produk;
+
+	//Tampilkan data pelanggan yang memiliki kartu dimana diskon kartu yang diberikan diatas 3%
+    SELECT id, nama, diskon_kartu
+     FROM pelanggan
+     WHERE diskon_kartu > 3;
