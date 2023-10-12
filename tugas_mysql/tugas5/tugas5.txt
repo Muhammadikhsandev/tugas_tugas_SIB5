@@ -1,0 +1,40 @@
+Tabel 1: Tabel Pelanggan
+- Primary Key: No
+- Attributes: No (PK), Nama_pelanggan, Nomor_Kartu_Diskon
+
+Tabel 2: Tabel Produk 
+- Primary Key: Produk_id
+- Attributes: Produk_id (PK), Kategori, Harga
+
+Tabel 3: Tabel Pesanan
+- Primary Key: Pesanan_id
+- Attributes: Pesanan_id (PK), No (FK), Tanggal Pesanan
+
+Tabel 4: Tabel Detail Pesanan
+- Primary Key: Detailpesanan_id
+- Attributes: Detailpesanan_id (PK), Pesanan_id (FK), Produk_id (FK), Jumlah, Tanggal Pesanan
+
+Tabel 5: Tabel Pembayaran 
+- Primary Key: Pembayaran_id
+- Attributes: Pembayaran_id (PK), Pesanan_id (FK), Metode Pembayaran, Total Harga
+
+Tabel 6: Tabel Harga
+- Primary Key: Produk_id
+- Attributes: Produk_id (PK), Harga
+
+Relasi
+1.	Tabel pelanggan dan tabel pesanan
+Pelanggan dan pesanan terhubung melalui relasi ini. Hubungan satu-ke-banyak antara pelanggan dan pesanan yang mereka buat diciptakan oleh kunci asing (FK) yang menghubungkan nomor dalam Tabel Pesanan dengan nomor dalam Tabel Pelanggan. Dengan kata lain, satu pembeli dapat memesan banyak barang.
+
+
+2.	Tabel Produk dan Tabel Detail Pesanan
+Ini adalah hubungan antara produk dan detail pesanan. Kunci asing (FK) yang menghubungkan Produk_id dalam Tabel Detail Pesanan dengan Produk_id dalam Tabel Produk memungkinkan pencatatan produk yang terkait dengan semua detail pesanan, termasuk jumlah yang dipesan.
+
+3.	Tabel Pesanan dan Tabel Detail Pesanan:
+Ini adalah kunci asing (FK) yang menghubungkan detail pesanan dengan Pesanan_id dalam Tabel Detail Pesanan. Kunci asing ini memungkinkan pencatatan semua detail pesanan yang terkait dengan pesanan tertentu.
+
+4.	Tabel pembayaran dan tabel pesanan:
+Untuk menghubungkan pesanan dengan pembayaran, ada hubungan satu-ke-banyak antara pesanan dan pembayaran yang dilakukan. Kunci asing (FK) yang menghubungkan pesanan_id dalam Tabel Pembayaran dengan pesanan_id dalam tabel pesanan. Dengan kata lain, dapat ada banyak pembayaran untuk satu pesanan jika pembayaran dilakukan berulang kali.
+
+5.	Tabel Produk dan Tabel Harga:
+Ini memiliki hubungan antara produk dan harganya. Produk_id dalam Tabel Harga adalah kunci asing (FK) yang menghubungkannya dengan Produk_id dalam Tabel Produk. Ini memungkinkan pencatatan harga yang tepat untuk setiap produk. Harga produk dapat berubah dari waktu ke waktu, dan Anda dapat melacak perubahan harga dengan relasi ini.
