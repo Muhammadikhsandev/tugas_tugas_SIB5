@@ -1,7 +1,10 @@
 <?php
+include_once 'koneksi.php';
+include_once 'models/Jenis_produk.php';
+include_once 'models/kartu.php';
+include_once 'models/produk.php';
 include_once 'top.php';
 include_once 'menu.php';
-
 
 ?>
 
@@ -16,7 +19,7 @@ include_once 'menu.php';
         } else if (!empty($url)) {
             include_once '' . $url . '.php';
         } else {
-            include_once 'dashboard.php';   
+            include_once 'dashboard.php';
         }
         ?>
     </div>
@@ -32,7 +35,7 @@ include_once 'menu.php';
         } else if (!empty($url)) {
             include_once '' . $url . '.php';
         } else {
-            include_once 'about.php';   
+            include_once 'about.php';
         }
         ?>
     </div>
@@ -48,7 +51,7 @@ include_once 'menu.php';
         } else if (!empty($url)) {
             include_once '' . $url . '.php';
         } else {
-            include_once 'contact.php';   
+            include_once 'contact.php';
         }
         ?>
     </div>
@@ -64,7 +67,7 @@ include_once 'menu.php';
         } else if (!empty($url)) {
             include_once '' . $url . '.php';
         } else {
-            include_once 'tables.php';   
+            include_once 'tables.php';
         }
         ?>
     </div>
