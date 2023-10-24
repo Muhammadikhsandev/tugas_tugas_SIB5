@@ -7,7 +7,7 @@ $data_produk = $model->dataProduk();
     <div class="container-fluid px-4">
         <h1 class="mt-4">Produk</h1>
         <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
             <li class="breadcrumb-item active">Tables</li>
         </ol>
         <div class="card mb-4">
@@ -65,9 +65,13 @@ $data_produk = $model->dataProduk();
                                 <td><?= $produk['stok'] ?></td>
                                 <td><?= $produk['min_stok'] ?></td>
                                 <td><?= $produk['jenis'] ?></td>
-
-
-
+                                <td>
+                                    <form>
+                                        <a href="index.php?url=produk_detail&id=<?= $produk['id'] ?>">
+                                        <button type="button" class="btn btn-info btn-sm">Detail</button>
+                                    </a>
+                                    </form>
+                                </td>
                             </tr>
                         <?php
 
