@@ -4,7 +4,7 @@ $data_kartu = $model->dataKartu();
 ?>
 <main>
     <div class="container-fluid px-4">
-        <h1 class="mt-4">Kartu Pelanggank</h1>
+        <h1 class="mt-4">Kartu Pelanggan</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
             <li class="breadcrumb-item active">Jenis Kartu</li>

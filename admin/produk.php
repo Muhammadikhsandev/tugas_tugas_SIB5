@@ -19,8 +19,9 @@ $data_produk = $model->dataProduk();
         </div>
         <div class="card mb-4">
             <div class="card-header">
-                <i class="fas fa-table me-1"></i>
-                DataTable Example
+                <a href="index.php?url=produk_form">
+                    <button class="btn btn-sm btn-primary">Tambah</button>
+                </a>
             </div>
             <div class="card-body">
                 <table id="datatablesSimple">
@@ -34,6 +35,7 @@ $data_produk = $model->dataProduk();
                             <th>Stok</th>
                             <th>Minimal Stok</th>
                             <th>Jenis Produk</th>
+                            <th>Aksi</th>
 
                         </tr>
                     </thead>
@@ -47,7 +49,7 @@ $data_produk = $model->dataProduk();
                             <th>Stok</th>
                             <th>Minimal Stok</th>
                             <th>Jenis Produk</th>
-
+                            <th>Aksi</th>
                         </tr>
                     </tfoot>
                     <tbody>
@@ -68,8 +70,8 @@ $data_produk = $model->dataProduk();
                                 <td>
                                     <form>
                                         <a href="index.php?url=produk_detail&id=<?= $produk['id'] ?>">
-                                        <button type="button" class="btn btn-info btn-sm">Detail</button>
-                                    </a>
+                                            <button type="button" class="btn btn-info btn-sm">Detail</button>
+                                        </a>
                                     </form>
                                 </td>
                             </tr>
