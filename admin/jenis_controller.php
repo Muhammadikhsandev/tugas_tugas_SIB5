@@ -17,7 +17,9 @@ $model = new jenis_produk();
 $tombol = $_REQUEST['proses'];
 switch ($tombol){
     case 'simpan' :$model->simpan($data); break;
+    case 'ubah' : $data[] = $_POST['idx']; $model->ubah($data); break;
     default:
     header('Location:index.php?url=jenis_produk');
+    break;
 }
 header('Location:index.php?url=jenis_produk');
