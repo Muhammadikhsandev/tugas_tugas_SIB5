@@ -13,7 +13,7 @@ if (isset($sesi)) {
 ?>
 
     <div>
-        <div class="container-fluid px-4">
+        <div class="container-fluid px -4">
             <!-- <h1>Selamat datang di halaman admin</h1> -->
 
             <?php
@@ -28,21 +28,21 @@ if (isset($sesi)) {
             ?>
         </div>
     </div>
-    <div>
+    <!-- <div>
         <div class="container-fluid px-4">
-            <!-- <h1>Selamat datang di halaman admin</h1> -->
+            <h1>Selamat datang di halaman admin</h1> -->
 
-            <?php
-            $url = !isset($_GET['url']) ? 'About' : $_GET['url'];
-            if ($url == 'About') {
-                include_once 'about.php';
-            } else if (!empty($url)) {
-                include_once '' . $url . '.php';
-            } else {
-                include_once 'about.php';
-            }
-            ?>
-        </div>
+    <?php
+    $url = !isset($_GET['url']) ? 'About' : $_GET['url'];
+    if ($url == 'About') {
+        include_once 'about.php';
+    } else if (!empty($url)) {
+        include_once '' . $url . '.php';
+    } else {
+        include_once 'about.php';
+    }
+    ?>
+    </div>
     </div>
     <div>
         <div class="container-fluid px-4">
@@ -80,6 +80,6 @@ if (isset($sesi)) {
 
     include_once 'button.php';
 } else {
-    echo '<script> alert("anda tidak boleh masuk");history.back();</script>';
+    echo '<script>alert("anda tidak boleh masuk");history.back();</script>';
 }
 ?>
