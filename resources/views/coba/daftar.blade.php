@@ -3,7 +3,7 @@ $no = 1;
 
 $s1 = ['nama' => 'fawwaz', 'nilai' => 85];
 $s2 = ['nama' => 'jamal', 'nilai' => 95];
-$s3 = ['nama' => 'asep', 'nilai' => 5]; // Ubah nilai $s3 ke 5
+$s3 = ['nama' => 'asep', 'nilai' => 55]; // Ubah nilai $s3 ke 5
 $s4 = ['nama' => 'abdul', 'nilai' => 65];
 $s5 = ['nama' => 'surisno', 'nilai' => 55];
 

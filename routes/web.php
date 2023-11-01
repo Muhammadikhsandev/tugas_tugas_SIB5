@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LihatNilaiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,3 +39,6 @@ Route::get('/nilai', function(){
 Route::get('/daftarnilai', function(){
     return view('coba.daftar');
 });
+//routing manggil dari class controller
+
+Route::get('/datamahasiswa', [LihatNilaiController::class, 'dataMahasiswa']);
