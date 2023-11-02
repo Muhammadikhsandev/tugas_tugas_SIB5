@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\LihatNilaiController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\LihatNilaiController;
+use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,23 +22,25 @@ Route::get('/salam', function () {
     return "Assalamualaikum selamat belajar laravel";
 });
 //tambah routing dengan parameter
-Route::get('/staff/{nama}/{divisi}', function($nama, $divisi){
-    return 'Nama Pegawai : '.$nama. '<br> Departemen : '.$divisi;
+Route::get('/staff/{nama}/{divisi}', function ($nama, $divisi) {
+    return 'Nama Pegawai : ' . $nama . '<br> Departemen : ' . $divisi;
 });
 
 //routing dengan memanggil nama file dari view
-Route::get('/kondisi', function(){
+Route::get('/kondisi', function () {
     return view('kondisi');
 });
 
-Route::get('/nilai', function(){
+Route::get('/nilai', function () {
     return view('coba.nilai');
 });
 
 //routing dengan view dan array data
-Route::get('/daftarnilai', function(){
+Route::get('/daftarnilai', function () {
     return view('coba.daftar');
 });
-//routing manggil dari class controller
 
+//routing manggil dari class controller
 Route::get('/datamahasiswa', [LihatNilaiController::class, 'dataMahasiswa']);
+
+Route::get('/dashboard', [DashboardController::class, 'index']);
