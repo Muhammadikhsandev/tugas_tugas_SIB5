@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LihatNilaiController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\KartuController;
+use App\Http\Controllers\JenisProdukController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,4 +43,11 @@ Route::get('/daftarnilai', function(){
 Route::get('/datamahasiswa', [LihatNilaiController::class, 'dataMahasiswa']);
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
+//contoh pemanggilan secara satu persatu function menggunakan get,put, update, delete
 Route::get('/notfound', [PageController::class, 'index']);
+
+//memanggil seluruh fungsi atau function menggunakan resource
+Route::resource('kartu', KartuController::class);
+
+//memanggil fungsi satu persatu
+Route::get('/jenis_produk', [JenisProdukController::class, 'index']);
