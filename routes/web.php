@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LihatNilaiController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\PageController;
+use App\Http\Controllers\PagenotController;
 use App\Http\Controllers\KartuController;
 use App\Http\Controllers\JenisProdukController;
+use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\PelangganController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,12 +44,23 @@ Route::get('/daftarnilai', function(){
 //routing manggil dari class controller
 Route::get('/datamahasiswa', [LihatNilaiController::class, 'dataMahasiswa']);
 
+
+Route::prefix('admin')->group(function(){
 Route::get('/dashboard', [DashboardController::class, 'index']);
 //contoh pemanggilan secara satu persatu function menggunakan get,put, update, delete
-Route::get('/notfound', [PageController::class, 'index']);
+Route::get('/notfound', [PagenotController::class, 'index']);
 
 //memanggil seluruh fungsi atau function menggunakan resource
 Route::resource('kartu', KartuController::class);
-
 //memanggil fungsi satu persatu
 Route::get('/jenis_produk', [JenisProdukController::class, 'index']);
+Route::get('/jenis_produk/create', [JenisProdukController::class, 'create']);
+Route::post('/jenis_produk/store', [JenisProdukController::class, 'store']);
+
+Route::get('/produk', [ProdukController::class, 'index']);
+Route::get('/produk/create', [ProdukController::class, 'create']);
+Route::post('/produk/store', [ProdukController::class, 'store']);
+
+Route::resource('pelanggan', PelangganController::class);
+
+});

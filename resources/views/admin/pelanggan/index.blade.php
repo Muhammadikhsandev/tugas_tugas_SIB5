@@ -9,7 +9,7 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                           <a href="{{url('admin/jenis_produk/create')}}" class="btn btn-primary" ><i class="fas fa-plus"></i></a>
+                        <a href="{{route('pelanggan.create')}}" class="btn btn-primary" ><i class="fas fa-plus"></i></a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -17,29 +17,43 @@
                                     <thead>
                                         
                                         <tr>
-                                            <th>No</th>
+                                        <th>No</th>
+                                            <th>Kode</th>
                                             <th>Nama</th>
-                                            <th>Action</th>   
+                                            <th>Jenis Kelamin</th>
+                                            <th>Tempat Lahir</th>
+                                            <th>Tanggal Lahir</th>
+                                            <th>Email</th>
+                                            <th>Kartu</th>
+                                            
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                         <th>No</th>
-                                        <th>Nama</th>
-                                        <th>Action</th>
-                                           
+                                            <th>Kode</th>
+                                            <th>Nama</th>
+                                            <th>Jenis Kelamin</th>
+                                            <th>Tempat Lahir</th>
+                                            <th>Tanggal Lahir</th>
+                                            <th>Email</th>
+                                            <th>Kartu</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                     @php $no=1 @endphp
-                                    @foreach ($jenis_produk as $jenis)
+                                    @foreach ($pelanggan as $pl)
                                     
                                         <tr>
                                             <td>{{$no++}}</td>
-                                            <td>{{$jenis->nama}}</td>
-                                            <td>
-                                                Ubah
-                                            </td>
+                                            <td>{{$pl->kode}}</td>
+                                            <td>{{$pl->nama}}</td>
+                                            <td>{{$pl->jk}}</td>
+                                            <td>{{$pl->tmp_lahir}}</td>
+                                            <td>{{$pl->tgl_lahir}}</td>
+                                            <td>{{$pl->email}}</td>
+                                            <td>{{$pl->kartu->nama}}</td>
+                                           
                                         </tr>
                                         
                                         @endforeach
