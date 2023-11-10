@@ -38,6 +38,13 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
+        //proses upload foto
+        if(!empty($request->foto)){
+            $fileName = 'foto-' . uniqid() . '.' . $request->foto->extension();
+            $request->foto->move(public_path('admin/img'), $fileName);
+        } else{
+            $fileName = '';
+        }
         //tambah data menggunakan query builder
         DB::table('produk')->insert([
             'kode'=>$request->kode,
@@ -46,6 +53,8 @@ class ProdukController extends Controller
             'harga_jual'=>$request->harga_jual,
             'stok'=>$request->stok,
             'min_stok'=>$request->min_stok,
+            'foto'=>$fileName,
+            'deskripsi'=>$request->deskripsi,
             'jenis_produk_id'=>$request->jenis_produk_id,
         ]);
         return redirect('admin/produk');
@@ -62,7 +71,8 @@ class ProdukController extends Controller
         ->where('produk.id', $id)
         ->get();
         return view ('admin.produk.detail', compact('produk'));
-    }  
+
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -72,7 +82,7 @@ class ProdukController extends Controller
         //
         $jenis_produk = DB::table('jenis_produk')->get();
         $produk = DB::table('produk')->where('id',$id)->get();
-        return view ('admin.produk.edit', compact('produk', 'jenis_produk'));
+        return view ('admin.produk.edit', compact('produk' , 'jenis_produk'));
     }
 
     /**
@@ -80,7 +90,20 @@ class ProdukController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        //update foto
+        $foto = DB::table('produk')->select('foto')->where('id', $request->id)->get();
+        foreach($foto as $f){
+            $namaFileFotoLama = $f->foto;
+        }
+        if(!empty($request->foto)){
+            //jika ada foto lama maka hapus fotonya 
+        if(!empty($namaFileFotoLama->foto)) unlink('admin/img'.$namaFileFotoLama->foto);
+        //proses ganti foto
+        $fileName = 'foto-'.$request->id . '.' . $request->foto->extension();
+        $request->foto->move(public_path('admin/img'), $fileName);
+        } else {
+            $fileName = '';
+        }
         DB::table('produk')->where('id',$request->id)->update([
             'kode'=>$request->kode,
             'nama'=>$request->nama,
@@ -88,6 +111,8 @@ class ProdukController extends Controller
             'harga_jual'=>$request->harga_jual,
             'stok'=>$request->stok,
             'min_stok'=>$request->min_stok,
+            'foto'=>$fileName,
+            'deskripsi'=>$request->deskripsi,
             'jenis_produk_id'=>$request->jenis_produk_id,
         ]);
         return redirect('admin/produk');

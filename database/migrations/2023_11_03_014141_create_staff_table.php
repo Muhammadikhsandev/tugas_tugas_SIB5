@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('staff', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->char('nip',3)->unique();
+            $table->char('nip', 3)->unique();
             $table->string('name', 50);
             $table->enum('gender', ['L', 'P']);
             $table->text('alamat');

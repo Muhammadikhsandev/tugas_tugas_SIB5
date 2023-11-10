@@ -39,23 +39,40 @@
   <div class="form-group row">
     <label for="text4" class="col-4 col-form-label">Minimal Stok</label> 
     <div class="col-8">
-      <input id="text4" name="min_stok" type="text" class="form-control"  value="{{$pr->min_stok}}">
+      <input id="text4" name="min_stok" type="text" class="form-control" value="{{$pr->min_stok}}">
     </div>
   </div>
+  <div class="form-group row">
+    <label for="text4" class="col-4 col-form-label">Foto</label> 
+    <div class="col-8">
+      <input id="text4" name="foto" type="file" class="form-control">
+      @if(!empty($pr->foto))
+    <img src="{{url('admin/img')}}/{{$pr->foto}}" alt="">
+  
+    @endif
+    </div>
+    
+  </div>
+  <div class="form-group row">
+    <label for="textarea" class="col-4 col-form-label">Deskripsi</label> 
+    <div class="col-8">
+      <textarea id="textarea" name="deskripsi" cols="40" rows="5" class="form-control">{{$pr->deskripsi}}</textarea>
+    </div>
+</div>
   <div class="form-group row">
     <label for="select" class="col-4 col-form-label">Jenis Produk</label> 
     <div class="col-8">
       <select id="select" name="jenis_produk_id" class="custom-select">
         @foreach ($jenis_produk as $p)
         @php $sel = ($p->id == $pr->jenis_produk_id) ? 'selected' : ''; @endphp
-        <option value="{{$p->id}}">{{$p->nama}}</option>
+        <option value="{{$p->id}}" {{$sel}}>{{$p->nama}}</option>
         @endforeach
       </select>
     </div>
   </div> 
   <div class="form-group row">
     <div class="offset-4 col-8">
-      <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+      <button name="submit" type="submit" class="btn btn-primary">Update</button>
     </div>
   </div>
 </form>

@@ -1,5 +1,7 @@
 <?php
 
-$nama = "jamal";
-echo 'hai apa kabar ' .$nama. '?';
+$nama = "Bedu";
+echo 'Hai Apa kabar'.$nama.'?';
+
+
 ?>

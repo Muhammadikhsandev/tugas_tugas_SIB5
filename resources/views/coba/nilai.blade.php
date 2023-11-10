@@ -1,10 +1,10 @@
-@php
+@php 
 $nama = "Budi";
-$nilai = 59.00;
+$nilai = 59.99;
 @endphp
 
 @if ($nilai >= 60) @php $ket = "lulus"; @endphp
-@else @php $ket = "gagal"; @endphp
+@else @php $ket = "Gagal"; @endphp
 @endif
 
-Siswwa {{ $nama }} dengan nilai {{ $nilai }} dinyatakan {{ $ket }}
+Siswa {{ $nama }} dengan nilai {{ $nilai }} dinyatakan {{ $ket }}

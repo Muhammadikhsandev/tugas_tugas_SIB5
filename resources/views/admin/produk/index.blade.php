@@ -26,7 +26,6 @@
                                             <th>Minimal Stok</th>
                                             <th>Jenis Produk</th>
                                             <th>Action</th>
-
                                             
                                         </tr>
                                     </thead>
@@ -41,7 +40,6 @@
                                             <th>Minimal Stok</th>
                                             <th>Jenis Produk</th>
                                             <th>Action</th>
-
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -60,7 +58,9 @@
                                             <td>
                                                 <a href="{{url('admin/produk/show/'.$pr->id)}}" class="btn btn-sm btn-info"><i class="fas fa-eye"></i></a>
                                                 <a href="{{url('admin/produk/edit/'.$pr->id)}}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
-                                                <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal{{$pr->id}}">
+                                                
+                                                <!-- Button trigger modal -->
+<button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal{{$pr->id}}">
 <i class="fas fa-trash"></i>
 </button>
 
@@ -69,17 +69,17 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Apakah anda ingin menghapusnya</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Hapus Data</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ya, saya ingin menghapusnya {{$pr->nama}} ?
+        Apakah anda yakin akan menghapus data {{$pr->nama}} ?
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-       <a href="{{url('admin/produk/delete/'.$pr->id)}}" type="button" class="btn btn-danger">Delete</a> 
+        <a href="{{url('admin/produk/delete/'.$pr->id)}}" type="button" class="btn btn-danger">Delete</a>
       </div>
     </div>
   </div>
