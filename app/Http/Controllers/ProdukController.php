@@ -16,7 +16,6 @@ class ProdukController extends Controller
     {
         
         //produk berelasi dengan jenis_produk
-   
         $produk = Produk::join('jenis_produk', 'jenis_produk_id', '=', 'jenis_produk.id')
         ->select('produk.*', 'jenis_produk.nama as jenis')
         ->get();
@@ -38,6 +37,31 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'kode' => 'required |unique:produk|max:10',
+            'nama' => 'required |unique:produk|max:45',
+            'harga_beli' => 'required|numeric',
+            'harga_jual' => 'required|numeric',
+            'stok' => 'required|numeric',
+            'min_stok' => 'required|numeric',
+            'foto' => 'nullable|image||mimes::jpg,jpeg,gif,png,svg|max:2048',
+            'deskripsi' => 'nullable|string|min:10',
+            'jenis_produk_id' => 'required|integer',
+        ],
+        [
+            'kode.max' => 'kode maximal 10 karakter',
+            'kode.required' => 'kode wajib  diisi',
+            'kode.unique' => 'kode sudah terisi pada data yang lain',
+            'nama.required' => 'nama wajib diisi',
+            'harga_beli.required' => 'harga beli harus diisi',
+            'harga_beli.numeric' => 'harus angka',
+            'harga_jual.required' => 'harga jual harus diisi',
+            'harga_jual.numeric' => 'harus angka',
+            'stok.requred' => 'stok harus diisi',
+            'min_stok.required' => 'minimal stok harus terisi',
+            'foto.max' => 'maksimal 2 MB',
+            'foto.image' => 'file ekstensi harus jpg, jpeg, gif, svg',
+        ]);
         //proses upload foto
         if(!empty($request->foto)){
             $fileName = 'foto-' . uniqid() . '.' . $request->foto->extension();
@@ -89,7 +113,30 @@ class ProdukController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
-    {
+    { 
+        $request->validate([
+            'nama' => 'required |unique:produk|max:45',
+            'harga_beli' => 'required|numeric',
+            'harga_jual' => 'required|numeric',
+            'stok' => 'required|numeric',
+            'min_stok' => 'required|numeric',
+            'foto' => 'nullable|image||mimes::jpg,jpeg,gif,png,svg|max:2048',
+            'deskripsi' => 'nullable|string|min:10',
+            'jenis_produk_id' => 'required|integer',
+        ],
+        [
+            'nama.required' => 'nama wajib diisi',
+            'harga_beli.required' => 'harga beli harus diisi',
+            'harga_beli.numeric' => 'harus angka',
+            'harga_jual.required' => 'harga jual harus diisi',
+            'harga_jual.numeric' => 'harus angka',
+            'stok.requred' => 'stok harus diisi',
+            'min_stok.required' => 'minimal stok harus terisi',
+            'foto.max' => 'maksimal 2 MB',
+            'foto.image' => 'file ekstensi harus jpg, jpeg, gif, svg',
+        ]
+    );
+
         //update foto
         $foto = DB::table('produk')->select('foto')->where('id', $request->id)->get();
         foreach($foto as $f){
