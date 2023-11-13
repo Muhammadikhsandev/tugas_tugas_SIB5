@@ -62,6 +62,7 @@ class ProdukController extends Controller
             'foto.max' => 'maksimal 2 MB',
             'foto.image' => 'file ekstensi harus jpg, jpeg, gif, svg',
         ]);
+        
         //proses upload foto
         if(!empty($request->foto)){
             $fileName = 'foto-' . uniqid() . '.' . $request->foto->extension();
