@@ -116,7 +116,7 @@ class ProdukController extends Controller
     public function update(Request $request, string $id)
     { 
         $request->validate([
-            'nama' => 'required |unique:produk|max:45',
+            'nama' => 'required |max:45',
             'harga_beli' => 'required|numeric',
             'harga_jual' => 'required|numeric',
             'stok' => 'required|numeric',
