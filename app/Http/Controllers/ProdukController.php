@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Produk;
 use App\Models\Jenis_produk;
 use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProdukController extends Controller
 {
@@ -82,7 +83,8 @@ class ProdukController extends Controller
             'deskripsi'=>$request->deskripsi,
             'jenis_produk_id'=>$request->jenis_produk_id,
         ]);
-        return redirect('admin/produk');
+        // Alert::success('Produk', 'Berhasil Menambahkan Produk');
+        return redirect('admin/produk')->with('Produk', 'Produk Berhasi Ditambahkan!');;
     }
 
     /**
@@ -115,6 +117,7 @@ class ProdukController extends Controller
      */
     public function update(Request $request, string $id)
     { 
+        // try{
         $request->validate([
             'nama' => 'required |max:45',
             'harga_beli' => 'required|numeric',
@@ -136,7 +139,8 @@ class ProdukController extends Controller
             'foto.max' => 'maksimal 2 MB',
             'foto.image' => 'file ekstensi harus jpg, jpeg, gif, svg',
         ]
-    );
+        
+        );
 
         //update foto
         $foto = DB::table('produk')->select('foto')->where('id', $request->id)->get();
@@ -163,7 +167,15 @@ class ProdukController extends Controller
             'deskripsi'=>$request->deskripsi,
             'jenis_produk_id'=>$request->jenis_produk_id,
         ]);
-        return redirect('admin/produk');
+        // Alert::success('Produk', 'Mengupdate Pelanggan');
+        return redirect('admin/produk')->with('success', 'Produk Berhasil update!');
+    // } catch (\Exception $e){
+        
+    //     // Alert::error('Produk', 'Tidak mengupdate Pelanggan');
+    //     return back()->with('errors', $validator->messages()->all()[0])->withInput();
+    
+
+    // }
     }
 
     /**
@@ -173,6 +185,8 @@ class ProdukController extends Controller
     {
         //
         DB::table('produk')->where('id', $id)->delete();
-        return redirect('admin/produk');
+        Alert::success('Produk', 'Berhasil Menghapus');
+
+        return redirect('admin/produk')->withSuccess('Berhasil menghapus!');;
     }
 }
