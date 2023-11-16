@@ -18,14 +18,13 @@
                 <th>Stok</th>
                 <th>Minimal Stok</th>
                 <th>Jenis Produk</th>
-                <th>Deskripsi</th>
+                
             </tr>
         </thead>
         <tbody>
+            @php $no = 1; @endphp
+            @foreach ($produk as $p)
             <tr>
-                @php $no = 1; @endphp
-                @foreach ($produk as $p)
-                <tr>
                 <td>{{$no++}}</td>
                 <td>{{$p->kode}}</td>
                 <td>{{$p->nama}}</td>
@@ -34,11 +33,12 @@
                 <td>{{$p->stok}}</td>
                 <td align="center">{{$p->min_stok}}</td>
                 <td>{{$p->jenis}}</td>
-
-                </tr>
-                @endforeach
+                
             </tr>
+            @endforeach
         </tbody>
+
     </table>
+    
 </body>
 </html>

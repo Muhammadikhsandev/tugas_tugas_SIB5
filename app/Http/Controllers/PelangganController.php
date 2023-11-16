@@ -9,6 +9,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 
 
+
 class PelangganController extends Controller
 {
     /**
@@ -18,9 +19,10 @@ class PelangganController extends Controller
     {
         //eloquent 
         $pelanggan = Pelanggan::all();
-        $title = 'Apakah kamu yakin akan menghapus user!';
-        $text = "Are you sure you want to delete?";
+        $title = 'Hapus User!';
+        $text = "Apakah kamu yakin akan menghapus user? ";
         confirmDelete($title, $text);
+       
         return view('admin.pelanggan.index',['pelanggan' => $pelanggan]);
 
     }
@@ -52,7 +54,7 @@ class PelangganController extends Controller
         $pelanggan->email = $request->email;
         $pelanggan->kartu_id = $request->kartu_id;
         $pelanggan->save();
-        Alert::success('Pelanggan', 'Berhasil Menambahkan Pelanggan');
+        Alert::success('Pelanggan', 'Berhasil menambahkan pelanggan');
         return redirect('admin/pelanggan');
     }
 
@@ -61,7 +63,7 @@ class PelangganController extends Controller
      */
     public function show(string $id)
     {
-        // show eloquent
+        //show eloquent
         // $pelanggan = Pelanggan::find($id);
         // return view ('admin.pelanggan.show', compact('pelanggan'));
     }
@@ -73,9 +75,9 @@ class PelangganController extends Controller
     {
         //edit eloquent
         $pelanggan = Pelanggan::find($id);
-        $kartu = kartu::all();
+        $kartu = Kartu::all();
         $gender = ['L','P'];
-        return view ('admin.pelanggan.edit', compact('pelanggan', 'kartu', 'gender'));
+        return view ('admin.pelanggan.edit', compact('pelanggan', 'kartu','gender'));
     }
 
     /**
@@ -83,7 +85,7 @@ class PelangganController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // 
         $pelanggan = Pelanggan::find($request->id);
         $pelanggan->kode = $request->kode;
         $pelanggan->nama = $request->nama;
@@ -94,6 +96,7 @@ class PelangganController extends Controller
         $pelanggan->kartu_id = $request->kartu_id;
         $pelanggan->save();
         return redirect('admin/pelanggan')->with('success', 'Pelanggan berhasil diupdate!');
+
     }
 
     /**
@@ -108,8 +111,8 @@ class PelangganController extends Controller
         // $title = 'Delete User!';
         // $text = "Are you sure you want to delete?";
         // confirmDelete($title, $text);
-        return redirect('admin/pelanggan')->with('success','Pelanggan Berhasil Dihapus!');
-        // return view ('admin.pelanggan.index', compact('pelanggan'));
+        return redirect('admin/pelanggan')->with('success', 'Pelanggan berhasil dihapus!');
+        // return view('admin.pelanggan.index', compact('pelanggan'));
 
     }
 }

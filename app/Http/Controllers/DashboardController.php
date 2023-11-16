@@ -21,9 +21,9 @@ class DashboardController extends Controller
         ->selectRaw('jk, count(jk) as jumlah')
         ->groupBy('jk')
         ->get();
-        $hitung_harga = DB::table('produk')->select('nama','harga_jual')->get();
+        $hitung_harga = DB::table('produk')->select('nama', 'harga_jual')->get();
 
         return view('admin.dashboard', 
-        compact('produk', 'pelanggan', 'jenis_produk', 'kartu', 'jenis_kelamin', 'hitung_harga')); //mengarahkan ke file dashboard yang ada didalam admin
+        compact('produk', 'pelanggan','jenis_produk','kartu', 'jenis_kelamin', 'hitung_harga')); //mengarahkan ke file dashboard yang ada didalam admin
     }
 }

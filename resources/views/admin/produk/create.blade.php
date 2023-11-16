@@ -5,11 +5,11 @@
 
 @if($errors->any())
 <div class="alert alert-danger">
-  <div>
-    @foreach($errors->all() as $error)
-    <li>{{$error}}</li>
-    @endforeach
-  </div>
+  <ul>
+      @foreach($errors->all() as $error)
+      <li>{{$error}}</li>
+      @endforeach
+  </ul>
 </div>
 @endif
 <form method="POST" action="{{url('admin/produk/store')}}" enctype="multipart/form-data">
@@ -17,21 +17,23 @@
   <div class="form-group row">
     <label for="text" class="col-4 col-form-label">Kode</label> 
     <div class="col-8">
-      <input id="text" name="kode" type="text" class="form-control @error('kode') is-invalid @enderror">
+      <input id="text" name="kode" type="text" class="form-control @error('kode') is-invalid @enderror" >
       @error('kode')
       <div class="invalid-feedback">
-        {{$message}}
+      {{$message}}
       </div>
       @enderror
     </div>
+   
   </div>
+       
   <div class="form-group row">
     <label for="text1" class="col-4 col-form-label">Nama</label> 
     <div class="col-8">
       <input id="text1" name="nama" type="text" class="form-control @error('nama') is-invalid @enderror">
       @error('nama')
       <div class="invalid-feedback">
-        {{$message}}
+      {{$message}}
       </div>
       @enderror
     </div>
@@ -43,7 +45,7 @@
       <input id="text2" name="harga_beli" type="text" class="form-control @error('harga_beli') is-invalid @enderror">
       @error('harga_beli')
       <div class="invalid-feedback">
-        {{$message}}
+      {{$message}}
       </div>
       @enderror
     </div>
@@ -51,10 +53,10 @@
   <div class="form-group row">
     <label for="text3" class="col-4 col-form-label">Harga Jual</label> 
     <div class="col-8">
-      <input id="text3" name="harga_jual" type="text" class="form-control @error('harga_jual') is-invalid @enderror" >
+      <input id="text3" name="harga_jual" type="text" class="form-control @error('harga_jual') is-invalid @enderror">
       @error('harga_jual')
       <div class="invalid-feedback">
-        {{$message}}
+      {{$message}}
       </div>
       @enderror
     </div>
@@ -65,7 +67,7 @@
       <input id="text4" name="stok" type="text" class="form-control @error('stok') is-invalid @enderror">
       @error('stok')
       <div class="invalid-feedback">
-        {{$message}}
+      {{$message}}
       </div>
       @enderror
     </div>
@@ -76,7 +78,7 @@
       <input id="text4" name="min_stok" type="text" class="form-control @error('min_stok') is-invalid @enderror">
       @error('min_stok')
       <div class="invalid-feedback">
-        {{$message}}
+      {{$message}}
       </div>
       @enderror
     </div>
@@ -87,7 +89,7 @@
       <input id="text4" name="foto" type="file" class="form-control @error('foto') is-invalid @enderror">
       @error('foto')
       <div class="invalid-feedback">
-        {{$message}}
+      {{$message}}
       </div>
       @enderror
     </div>
@@ -101,14 +103,14 @@
   <div class="form-group row">
     <label for="select" class="col-4 col-form-label">Jenis Produk</label> 
     <div class="col-8">
-      <select id="select" name="jenis_produk_id" class="custom-select  @error('jenis_produk_id') is-invalid @enderror">
+      <select id="select" name="jenis_produk_id" class="custom-select @error('jenis_produk_id') is-invalid @enderror">
         @foreach ($jenis_produk as $p)
         <option value="{{$p->id}}">{{$p->nama}}</option>
         @endforeach
       </select>
       @error('jenis_produk_id')
       <div class="invalid-feedback">
-        {{$message}}
+      {{$message}}
       </div>
       @enderror
     </div>

@@ -29,23 +29,12 @@ background-color: blue;
 </style>
 </head>
 <body>
-<div class="menu">
-<a href="#1" class="button">Profil</a>
-<a href="#2" class="button">Pendidikan</a>
-<a href="#3" class="button">Keahlian</a>
-<a href="#4" class="button">Pengalaman</a>
-<a href="#5" class="button">Kontak</a>
-<br><br>
-</div>
+
 <h1 align="center">DETAIL PRODUK</h1>
 <table align="center" border="1">
-    @foreach($produk as $p)
-    <tr><td colspan="2" bgcolor="#fff000">
-    @empty($p->foto)
-    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="{{url('admin/img/nophoto.jpg')}}" alt="..." /></div>
-    @else
-    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="{{url('admin/img')}}/{{$p->foto}}" alt="..." /></div>
-    @endempty
+    @foreach ($produk as $p)
+<tr><td colspan="2" bgcolor="#fff000">
+<img class="card-img-top mb-5 mb-md-0" src="#" alt="..." />   
 </td></tr>
 <tr align="center">
 <td> 085396717324 </td>
@@ -55,7 +44,7 @@ background-color: blue;
 <table align="center">
 <tr>
 <td width="1%">Nama Produk</td>
-<td width="10%">{{$p->$produk}}</td>
+<td width="10%">: {{$p->nama}}</td>
 </tr>
 <tr>
 <td width="1%">Tempat Lahir</td>

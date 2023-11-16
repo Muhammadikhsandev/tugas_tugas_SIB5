@@ -8,6 +8,6 @@
 <body>
     <h1>{{$title}}</h1>
     <p>{{$date}}</p>
-    <p>Deskripsi</p>
+    <p>Deskripsi </p>
 </body>
 </html>

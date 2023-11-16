@@ -9,11 +9,11 @@
 @foreach ($produk as $pr)
 @if($errors->any())
 <div class="alert alert-danger">
-  <div>
-    @foreach($errors->all() as $error)
-    <li>{{$error}}</li>
-    @endforeach
-  </div>
+  <ul>
+      @foreach($errors->all() as $error)
+      <li>{{$error}}</li>
+      @endforeach
+  </ul>
 </div>
 @endif
 <form method="POST" action="{{url('admin/produk/update/'.$pr->id)}}" enctype="multipart/form-data">
@@ -21,20 +21,24 @@
   <div class="form-group row">
     <label for="text" class="col-4 col-form-label">Kode</label> 
     <div class="col-8">
-      <input id="text" name="kode" type="text" class="form-control" value="{{$pr->kode}} ">
+      <input id="text" name="kode" type="text" class="form-control" value="{{$pr->kode}}">
+     
     </div>
+    
   </div>
   <div class="form-group row">
     <label for="text1" class="col-4 col-form-label">Nama</label> 
     <div class="col-8">
-      <input id="text1" name="nama" type="text" class="form-control" value="{{$pr->nama}}">
+      <input id="text1" name="nama" type="text" class="form-control " value="{{$pr->nama}}">
+      
     </div>
   </div>
   
   <div class="form-group row">
     <label for="text2" class="col-4 col-form-label">Harga Beli</label> 
     <div class="col-8">
-      <input id="text2" name="harga_beli" type="text" class="form-control" value="{{$pr->harga_beli}}">
+      <input id="text2" name="harga_beli" type="text" class="form-control " value="{{$pr->harga_beli}}">
+     
     </div>
   </div>
   <div class="form-group row">
