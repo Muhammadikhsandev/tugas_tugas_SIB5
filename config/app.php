@@ -169,6 +169,7 @@ return [
         App\Providers\EventServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -185,6 +186,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
         'Alert'=> RealRashid\SweetAlert\Facades\Alert::class,
+        'PDF' =>  Barryvdh\DomPDF\Facades::class,
     ])->toArray(),
 
 ];

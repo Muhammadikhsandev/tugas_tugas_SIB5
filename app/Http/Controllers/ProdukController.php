@@ -7,6 +7,7 @@ use App\Models\Produk;
 use App\Models\Jenis_produk;
 use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
+use PDF;
 
 class ProdukController extends Controller
 {
@@ -189,4 +190,28 @@ class ProdukController extends Controller
 
         return redirect('admin/produk')->withSuccess('Berhasil menghapus!');;
     }
+    public function generatePDF(){
+        $data = [
+            'title' => 'Welcome to PDF',
+            'date' => ('m/d/y')
+        ];
+        $pdf = PDF ::loadView('admin.produk.myPDF', $data);
+        return $pdf->download('testdownload.pdf');
+    }
+    public function produkPDF(){
+        $produk = Produk::join('jenis_produk', 'jenis_produk_id', '=', 'jenis_produk.id')
+        ->select('produk.*', 'jenis_produk.nama as jenis')
+        ->get();
+        $pdf = PDF::loadView('admin.produk.produkPDF', ['produk' => $produk])->setPaper('a4','landscape');
+        return $pdf->stream();
+    }
+    public function produkPDF_show(string $id){
+        $produk = Produk::join('jenis_produk', 'jenis_produk_id', '=', 'jenis_produk.id')
+        ->select('produk.*', 'jenis_produk.nama as jenis')
+        ->where('produk.id', $id)
+        ->get();
+        $pdf =PDF::loadView('admin.produk.produkPDF_show', ['produk' => $produk]);
+        return $pdf->stream();
+    }
+    
 }
