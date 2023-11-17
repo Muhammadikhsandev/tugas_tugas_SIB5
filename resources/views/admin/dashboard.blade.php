@@ -18,7 +18,7 @@
                     <div class="h5 mb-0 font-weight-bold text-gray-800">{{$produk}}</div>
                 </div>
                 <div class="col-auto">
-                  <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                   <i class="fas fa-calendar fa-2x text-gray-300"></i>
                     <!-- <i class="fab fa-product-hunt"></i> -->
                 </div>
             </div>
@@ -145,7 +145,7 @@
     var data2 = [@foreach($jenis_kelamin as $jk) {{$jk->jumlah}}, @endforeach];
     document.addEventListener("DOMContentLoaded", () => {
         new Chart(document.querySelector('#myPie'), {
-
+   
   type: 'doughnut',
   data: {
     labels: label,

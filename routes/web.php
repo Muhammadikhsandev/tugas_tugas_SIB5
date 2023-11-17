@@ -70,6 +70,8 @@ Route::get('/produk/delete/{id}', [ProdukController::class, 'destroy']);
 Route::get('/generatePDF', [ProdukController::class, 'generatePDF']);
 Route::get('/produk/produkPDF', [ProdukController::class, 'produkPDF']);
 Route::get('/produk/pdfshow/{id}', [ProdukController::class, 'produkPDF_show']);
+Route::get('/produk/export/', [ProdukController::class, 'exportProduk']);
+Route::post('/produk/import/', [ProdukController::class, 'importProduk']);
 
 
 Route::resource('pelanggan', PelangganController::class);

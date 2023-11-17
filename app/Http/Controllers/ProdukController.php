@@ -7,7 +7,10 @@ use App\Models\Produk;
 use App\Models\Jenis_produk;
 use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ProdukExport;
 use PDF;
+use App\Imports\ProdukImport;
 
 class ProdukController extends Controller
 {
@@ -18,7 +21,7 @@ class ProdukController extends Controller
     {
         
         //produk berelasi dengan jenis_produk
-   
+
         $produk = Produk::join('jenis_produk', 'jenis_produk_id', '=', 'jenis_produk.id')
         ->select('produk.*', 'jenis_produk.nama as jenis')
         ->get();
@@ -53,7 +56,7 @@ class ProdukController extends Controller
             'jenis_produk_id' => 'required|integer',
         ],
         [
-           
+
             'kode.max' => 'Kode maximal 10 karakter',
             'kode.required' => 'Kode Wajib Diisi',
             'kode.unique' => 'Kode Sudah terisi pada data lain',
@@ -215,5 +218,18 @@ class ProdukController extends Controller
         ->get();
         $pdf = PDF::loadView('admin.produk.produkPDF_show', ['produk' => $produk]);
         return $pdf->stream();
+    }
+    public function exportProduk(){
+        return Excel::download(new ProdukExport, 'produk.xlsx');
+    }
+    public function importProduk(Request $request) 
+    {
+        // Excel::import(new ProdukImport, 'produk.xlsx');
+        $file = $request->file('file');
+        $nama_file = rand().$file->getClientOriginalName();
+        $file->move('file_excel', $nama_file);
+        Excel::import(new ProdukImport, public_path('/file_excel'.$nama_file));
+        
+        return redirect('admin/produk');
     }
 }
