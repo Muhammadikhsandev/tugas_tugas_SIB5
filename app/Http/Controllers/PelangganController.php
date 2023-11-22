@@ -74,7 +74,7 @@ class PelangganController extends Controller
     public function edit(string $id)
     {
         //edit eloquent
-        $pelanggan = Pelanggan::find($id);
+        $pelanggan = Pelanggan::all()->where('id', $id);
         $kartu = Kartu::all();
         $gender = ['L','P'];
         return view ('admin.pelanggan.edit', compact('pelanggan', 'kartu','gender'));

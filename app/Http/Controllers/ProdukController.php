@@ -225,11 +225,11 @@ class ProdukController extends Controller
     public function importProduk(Request $request) 
     {
         // Excel::import(new ProdukImport, 'produk.xlsx');
-        $file = $request->file('file');
-        $nama_file = rand().$file->getClientOriginalName();
-        $file->move('file_excel', $nama_file);
-        Excel::import(new ProdukImport, public_path('/file_excel'.$nama_file));
+        // $file = $request->file('file');
+        // $nama_file = rand().$file->getClientOriginalName();
+        // $file->move('file_excel', $nama_file);
+        Excel::import(new ProdukImport, $request->file('file')->store('temp'));
         
-        return redirect('admin/produk');
+        return redirect('admin/produk')->with('success', 'Produk Berhasil Di Import!');
     }
 }

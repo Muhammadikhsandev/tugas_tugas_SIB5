@@ -59,13 +59,9 @@
                                             <a href="{{route('pelanggan.edit', $pl->id)}}" class="btn btn-warning btn-sm">Edit</a>
                                             <a href="{{route('pelanggan.destroy', $pl->id) }}" class="btn btn-sm btn-danger" data-confirm-delete="true">Delete</a>
 
-
-                                            </td>
-                                           
-                                        </tr>
-                                        
-                                        @endforeach
-                                       
+                                           </td>          
+                                        </tr> 
+                                        @endforeach                                       
                                     </tbody>
                                 </table>
                             </div>

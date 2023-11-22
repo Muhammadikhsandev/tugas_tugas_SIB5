@@ -26,8 +26,7 @@
                                         <tr>
                                         <th>No</th>
                                         <th>Nama</th>
-                                        <th>Action</th>
-                                           
+                                        <th>Action</th>                                           
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -42,8 +41,7 @@
                                             </td>
                                         </tr>
                                         
-                                        @endforeach
-                                       
+                                        @endforeach                                       
                                     </tbody>
                                 </table>
                             </div>
