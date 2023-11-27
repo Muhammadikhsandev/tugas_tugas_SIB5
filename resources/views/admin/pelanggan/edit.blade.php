@@ -6,7 +6,7 @@
 
 <form method="POST" action="{{route('pelanggan.update', $pl->id)}}" enctype="multipart/form-data">
     @csrf
-
+    @method('PUT')
   <div class="form-group row">
     <label for="text" class="col-4 col-form-label">Kode</label> 
     <div class="col-8">
