@@ -10,7 +10,6 @@ use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\UserController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,7 +24,6 @@ use App\Http\Controllers\UserController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-
 Route::get('/', [BerandaController::class, 'index']);
 Route::get('/salam', function(){
     return "Assalamualaikum selamat belajar Laravel";
@@ -80,7 +78,9 @@ Route::post('/produk/import/', [ProdukController::class, 'importProduk']);
 
 
 Route::resource('pelanggan', PelangganController::class);
-Route::get('/user', [UserController::class, 'index']); 
+Route::get('/user', [UserController::class, 'index']);
+Route::get('/profile', [UserController::class, 'show']);
+Route::patch('/profile/{id}', [UserController::class, 'update']);
 
 });
 });

@@ -53,8 +53,9 @@
                             </div>
                         </div>
                     </div>
+
                 
-@else
+@else 
 @include('admin.pagenot')
 @endif
 
